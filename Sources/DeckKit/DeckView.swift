@@ -172,6 +172,7 @@ private extension DeckView {
         if activeItem == nil { activeItem = item }
         if item != activeItem { return }
         topItemOffset = drag.translation
+        deck.wrappedValue.dragging = true
         withAnimation(.spring()) {
             if dragGestureIsPastThreshold(drag) {
                 moveItemToBack(item)
@@ -189,6 +190,7 @@ private extension DeckView {
             activeItem = nil
             topItemOffset = .zero
         }
+        deck.wrappedValue.dragging = false
     }
     
     func dragGestureEndedAction(for drag: DragGesture.Value) -> ItemAction? {

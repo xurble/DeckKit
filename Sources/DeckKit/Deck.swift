@@ -45,6 +45,8 @@ public struct Deck<Item: DeckItem>: Identifiable, Equatable {
      The items that are added to the deck.
      */
     public var items: [Item]
+    
+    public var dragging: Bool = false
 }
 
 public extension Deck {
